@@ -25,7 +25,7 @@ func (h *Handler) RegisterRoutes(router *mux.Router) {
 	router.HandleFunc("/register", h.handleRegister).Methods(http.MethodPost)
 	router.HandleFunc("/login", h.handleLogin).Methods(http.MethodPost)
 	router.HandleFunc("/logout", h.handleLogout).Methods(http.MethodPost)
-	router.HandleFunc("/me", auth.WithJWTAuth(h.handleMyProfile, h.store)).Methods(http.MethodGet)
+	router.HandleFunc("/users/me", auth.WithJWTAuth(h.handleMyProfile, h.store)).Methods(http.MethodGet)
 
 }
 
