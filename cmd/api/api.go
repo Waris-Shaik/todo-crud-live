@@ -24,6 +24,11 @@ func NewAPIServer(addr string, db *sql.DB) *APIServer {
 
 func (s *APIServer) Run() error {
 	router := mux.NewRouter().StrictSlash(true)
+
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "static/index.html")
+	})
+
 	subrouter := router.PathPrefix("/api/v1").Subrouter()
 
 	// user-store
