@@ -19,10 +19,7 @@ type contextKey string
 const UserKey contextKey = "userID"
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("Error loading .env file", err)
-	}
+	godotenv.Load()
 }
 
 func CreateJWT(userID int) (string, error) {

@@ -15,10 +15,8 @@ import (
 )
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("Error loading .env file", err)
-	}
+	godotenv.Load()
+
 }
 
 type APIServer struct {
