@@ -10,7 +10,6 @@ import (
 	"github.com/Waris-Shaik/todo/types"
 	"github.com/Waris-Shaik/todo/utils"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 )
 
 type Handler struct {
@@ -103,8 +102,6 @@ func (h *Handler) handleRegister(w http.ResponseWriter, r *http.Request) {
 		Secure:   true,
 	}
 
-	_ = godotenv.Load()
-
 	if utils.GetNodeENV("NODE_ENV") == "Development" {
 		cookie.SameSite = http.SameSiteLaxMode
 		cookie.Secure = false
@@ -173,7 +170,6 @@ func (h *Handler) handleLogin(w http.ResponseWriter, r *http.Request) {
 		SameSite: http.SameSiteNoneMode,
 		Secure:   true,
 	}
-	_ = godotenv.Load()
 	if utils.GetNodeENV("NODE_ENV") == "Development" {
 		cookie.SameSite = http.SameSiteLaxMode
 		cookie.Secure = false

@@ -11,7 +11,6 @@ import (
 	"github.com/Waris-Shaik/todo/types"
 	"github.com/Waris-Shaik/todo/utils"
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/joho/godotenv"
 )
 
 type contextKey string
@@ -19,7 +18,6 @@ type contextKey string
 const UserKey contextKey = "userID"
 
 func CreateJWT(userID int) (string, error) {
-	_ = godotenv.Load()
 	secret := os.Getenv("JWT_SECRET_KEY")
 	if len(secret) == 0 {
 		return "", fmt.Errorf("JWT_SECRET_KEY is not set")
