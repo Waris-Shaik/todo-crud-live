@@ -39,7 +39,7 @@ func (s *APIServer) Run() error {
 	todoHandler := todo.NewHandler(todoStore, userStore)
 	todoHandler.RegisterRoutes(subrouter)
 
-	godotenv.Load()
+	_ = godotenv.Load()
 	// CORS configuration
 	frontendURL := os.Getenv("FRONTEND_URL")
 	corsOptions := handlers.AllowedOrigins([]string{frontendURL})

@@ -103,7 +103,7 @@ func (h *Handler) handleRegister(w http.ResponseWriter, r *http.Request) {
 		Secure:   true,
 	}
 
-	godotenv.Load()
+	_ = godotenv.Load()
 
 	if utils.GetNodeENV("NODE_ENV") == "Development" {
 		cookie.SameSite = http.SameSiteLaxMode
@@ -173,7 +173,7 @@ func (h *Handler) handleLogin(w http.ResponseWriter, r *http.Request) {
 		SameSite: http.SameSiteNoneMode,
 		Secure:   true,
 	}
-	godotenv.Load()
+	_ = godotenv.Load()
 	if utils.GetNodeENV("NODE_ENV") == "Development" {
 		cookie.SameSite = http.SameSiteLaxMode
 		cookie.Secure = false
