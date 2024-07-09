@@ -11,7 +11,15 @@ import (
 	"github.com/Waris-Shaik/todo/utils"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 )
+
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Println("Error loading .env file")
+	}
+}
 
 type APIServer struct {
 	addr string
