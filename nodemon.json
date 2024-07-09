@@ -1,0 +1,7 @@
+{
+    "watch": ["."],
+    "ext": "go",
+    "ignore": ["*.test.go", "node_modules/*"],
+    "exec": "go run cmd/main.go"
+}
+  
