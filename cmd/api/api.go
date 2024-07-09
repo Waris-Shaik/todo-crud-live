@@ -11,7 +11,6 @@ import (
 	"github.com/Waris-Shaik/todo/utils"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 )
 
 type APIServer struct {
@@ -39,7 +38,6 @@ func (s *APIServer) Run() error {
 	todoHandler := todo.NewHandler(todoStore, userStore)
 	todoHandler.RegisterRoutes(subrouter)
 
-	_ = godotenv.Load()
 	// CORS configuration
 	frontendURL := os.Getenv("FRONTEND_URL")
 	corsOptions := handlers.AllowedOrigins([]string{frontendURL})
