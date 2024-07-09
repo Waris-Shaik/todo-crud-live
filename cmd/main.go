@@ -10,16 +10,7 @@ import (
 	"github.com/Waris-Shaik/todo/configs"
 	"github.com/Waris-Shaik/todo/db"
 	"github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
 )
-
-func init() {
-	// load .env file
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal(err)
-	}
-}
 
 func main() {
 
