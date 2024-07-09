@@ -13,10 +13,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func init() {
-	godotenv.Load()
-}
-
 type Handler struct {
 	store types.UserStore
 }
@@ -107,6 +103,8 @@ func (h *Handler) handleRegister(w http.ResponseWriter, r *http.Request) {
 		Secure:   true,
 	}
 
+	godotenv.Load()
+
 	if utils.GetNodeENV("NODE_ENV") == "Development" {
 		cookie.SameSite = http.SameSiteLaxMode
 		cookie.Secure = false
@@ -175,7 +173,7 @@ func (h *Handler) handleLogin(w http.ResponseWriter, r *http.Request) {
 		SameSite: http.SameSiteNoneMode,
 		Secure:   true,
 	}
-
+	godotenv.Load()
 	if utils.GetNodeENV("NODE_ENV") == "Development" {
 		cookie.SameSite = http.SameSiteLaxMode
 		cookie.Secure = false

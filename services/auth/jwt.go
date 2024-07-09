@@ -18,11 +18,8 @@ type contextKey string
 
 const UserKey contextKey = "userID"
 
-func init() {
-	godotenv.Load()
-}
-
 func CreateJWT(userID int) (string, error) {
+	godotenv.Load()
 	secret := os.Getenv("JWT_SECRET_KEY")
 	if len(secret) == 0 {
 		return "", fmt.Errorf("JWT_SECRET_KEY is not set")

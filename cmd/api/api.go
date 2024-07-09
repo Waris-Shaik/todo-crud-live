@@ -14,11 +14,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func init() {
-	godotenv.Load()
-
-}
-
 type APIServer struct {
 	addr string
 	db   *sql.DB
@@ -44,6 +39,7 @@ func (s *APIServer) Run() error {
 	todoHandler := todo.NewHandler(todoStore, userStore)
 	todoHandler.RegisterRoutes(subrouter)
 
+	godotenv.Load()
 	// CORS configuration
 	frontendURL := os.Getenv("FRONTEND_URL")
 	corsOptions := handlers.AllowedOrigins([]string{frontendURL})
